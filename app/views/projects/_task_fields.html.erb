@@ -1,0 +1,10 @@
+   
+      <div class="col-md-12" id="tasks" style="margin-bottom:20px">
+      <div class="col-md-6 field" >
+      <%= f.label :task  %><br>
+      <%= f.text_field  :task, :class => "form-control" %>
+      <%= f.check_box :_destroy %>
+      <%= link_to "remove", '#', class: "remove_tag" %>
+      </div>
+      </div>
+   

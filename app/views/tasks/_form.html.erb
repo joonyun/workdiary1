@@ -1,0 +1,12 @@
+   <%= form.fields_for :tasks  do |t| %>
+
+      <div class="col-md-12" id="tasks" style="margin-bottom:20px">
+      <div class="col-md-6 field" >
+      <%= t.label :task  %><br>
+      <%= t.text_field  :task, :class => "form-control" %>
+      <%= t.hidden_field :_destroy %>
+      <%= link_to "remove", '#', class: "remove_tag" %>
+      </div>
+      </div>
+   
+     <% end %>

@@ -1,0 +1,30 @@
+<div style="color:black;width:150px;text-align:left">
+<% @issue.tags.build %>
+
+<%= form.fields_for :tags do | f | %>
+
+ <%= f.label :tag_name ,'태그', :for => 'for="exampleInputFile"' %>
+ <% if f.object.persisted? %>
+ <span style="margin-left:30px">
+ 
+  <%= f.check_box :_destroy %>
+  <%= f.label '삭제' %>
+</span>
+  <% end %>
+  <%#= f.object.tag_id %>
+  <div style="margin-bottom:10px">
+   <%#= f.object.inspect %>
+   <%= f.collection_select :tag_id,TagList.order(:tagname),:id, :tagname, :prompt => true, :selected => f.object.tag_id  %>
+   <%= f.hidden_field :issue_id, :value => @issue.id %> 
+   <%= f.hidden_field :tag_type, :value => "issue" %>
+   <%= f.hidden_field :issue_id %> 
+  </div>
+
+  <% unless f.object.persisted? %>
+   <%= text_field :tag_list, :tagname, :class => 'form-control'%>
+  <% end %>
+
+
+<% end %>
+
+</div>

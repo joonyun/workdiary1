@@ -1,0 +1,40 @@
+<% if @issue.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@issue.errors.count, "error") %> prohibited this issue from being saved:</h2>
+
+      <ul>
+      <% @issue.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+
+<%= form_for @issue, :html => { :class => 'form-horizontal' } do |f| %>
+  <div class="control-group">
+    <%= f.label :title %>
+    <div class="controls">
+      <%= f.text_field :title, :class => 'form-control' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :context  %>
+    <div class="controls">
+      <%= f.text_area :context, :class => 'form-control', :style => "margin-bottom:10px"%>
+    </div>
+  </div>
+
+
+  <div class="well">
+   <label class="label">
+    <%= render :partial => "tags/form", :locals => { :form => f  } %>
+    </label>
+    </div>
+
+  <div class="form-actions">
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+  
+  </div>
+<% end %>

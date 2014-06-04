@@ -1,0 +1,31 @@
+<h1>Show survey</h1>
+<p id="notice"><%= notice %></p>
+
+<table class="table">
+  <tr>
+  <td>
+  <strong>Title:</strong>
+  <%= @survey.title %>
+ 
+  <% cnt=1;
+   for q in @survey.questions %>
+  <tr>
+   <td>
+    <div>
+      질문 <%=cnt%>. <%= q.question %>
+    </div> 
+      <div style='margin-left:50px'>
+         <% for a in q.answers %>
+          <li><%= a.answer %></li>
+         <% end %>
+      </div>
+
+   <% 
+    cnt+=1
+    end %>
+
+</table>
+
+<%= link_to 'Edit', edit_survey_path(@survey) %> |
+<%= link_to 'Back', surveys_path %>
+

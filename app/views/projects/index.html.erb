@@ -1,0 +1,36 @@
+<h1>Listing projects</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Title</th>
+      <th>날짜</th>
+      <th>옵션</th>
+     
+    </tr>
+  </thead>
+
+  <tbody>
+    <%  @cnt = 0 %>
+    <% @projects.each do |project| %>
+      <tr>
+        <td>
+          <%=@count - @cnt%>
+        </td>
+
+        <td><%= link_to project.title, project %></td>
+        <td><%= project.created_at.strftime("%y/%m/%d")%> </td>
+        <td>
+          <%= link_to 'Edit', edit_project_path(project), :class =>"btn btn-primary" %>
+          <%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger" %>
+        </td>
+      </tr>
+      <% @cnt+=1%>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Project', new_project_path %>

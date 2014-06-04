@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <h2>프로젝트</h2>
+  <h3><%= @project.title %></h3>
+</p>
+
+<div class="well"  style="margin-bottom: 10px">
+  <%=render @project.tasks %>
+
+</div>
+  
+
+<%= link_to 'Edit', edit_project_path(@project), :class => "btn btn-primary" %> 
+<%= link_to 'Back', projects_path , :class => "btn btn-primary" %>

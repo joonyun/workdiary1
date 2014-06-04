@@ -1,0 +1,47 @@
+
+<%= form_for(@project) do |f| %>
+
+<div class="row">
+  <% if @project.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@project.errors.count, "error") %> prohibited this project from being saved:</h2>
+
+      <ul>
+      <% @project.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+ 
+<div class="col-md-12" style="margin-bottom:20px">
+  <div class="col-md-6 field" >
+    <%= f.label :title  %><br>
+    <%= f.text_field  :title, :class => "form-control" %>
+  </div>
+</div>
+  
+  <div>
+    <%# for tk in @project.tasks %>
+      <%#= tk.inspect%>
+      <%#= render :partial=>"tasks/form", locals: { f: tk} %>
+    <%# end %>
+  </div>
+
+  <%= f.fields_for :tasks  do |tk| %>
+    <%= render :partial=>"task_fields", locals: { :f => tk} %>
+  <% end %>
+
+
+   <div class="col-md-12 pull-left"  >
+   <%= link_to_add_fields '할일추가', f, :tasks  %>
+   </div>
+ 
+
+
+  <div class="col-md-6" style="margin-top:30px">
+    <%= f.submit %>
+  </div>
+
+  </div>
+<% end %>

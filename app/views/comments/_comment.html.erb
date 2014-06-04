@@ -1,0 +1,8 @@
+<div class="well">
+ <%= comment.comment%>
+ <div><%=link_to "삭제", [@issue, comment], :method => :delete, 
+ :data => { :confirm => "정말 삭제하시겠습니까?"} %> 
+ </div>
+
+ <%#=[@issue, comment].inspect%>
+</div> 

@@ -1,0 +1,19 @@
+<%#=[@issue, @issue.comments.build].inspect%>
+
+<%= form_for [@issue, @issue.comments.build] do | f | %>
+
+<div class="row">
+  <div class="col-md-9">
+   
+    <div class="row">
+      <div class="col-md-7">
+      <%= f.text_area :comment , :class => "form-control" %>
+      </div>
+      <div class="col-md-2">
+         <%=f.submit '저장', :class => "btn btn-default" %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<% end %>

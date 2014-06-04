@@ -1,0 +1,16 @@
+
+<div class="col-md-12">
+  <%= f.input :question, :label => "질문 #{ @cnt }", input_html: { class:' form-control'} %>
+
+   <%= f.check_box :_destroy %>삭제<br>
+   <% f.object.answers.build %>
+   <%= f.simple_fields_for :answers, f.object.answers do | q | %>
+   <%= render :partial => "answer_fields", locals: { :f => q }  %>
+
+   <% end %>
+
+
+<%  @cnt+=1  %>
+
+</div>
+

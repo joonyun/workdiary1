@@ -1,0 +1,33 @@
+<div>
+<p id="notice"><%= notice %></p>
+
+<p>
+  <h2>Project</h2>
+  <h3><%= @issue.title %></h3>
+</p>
+
+<p>
+  <strong>Context:</strong>
+  <%= @issue.context%>
+</p>
+
+
+<div>
+  태그 :
+  <%= raw @issue.tags.map {|tag| "<button type='button'  class='btn btn-default btn-xs'>#{tag.tag_name}</button>"}.join(" ")%>
+</div>
+
+<div style="text-align:left;margin-top:10px;margin-top:20px">
+  <%= render :partial => "comments/form" %>
+</div>
+
+ 
+<div style="margin-top:20px">
+  <%= render @issue.comments.order("created_at desc") %>
+</div>
+
+
+
+<%= link_to 'Edit', edit_issue_path(@issue) %> |
+<%= link_to 'Back', issues_path %>
+</div>

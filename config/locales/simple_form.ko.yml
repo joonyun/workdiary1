@@ -1,0 +1,29 @@
+kos:
+  simple_form:
+    "yes": 'Yes'
+    "no": 'No'
+    required:
+      text: 'required'
+      mark: '*'
+      # You can uncomment the line below if you need to overwrite the whole required html.
+      # When using html, text and mark won't be used.
+      # html: '<abbr title="required">*</abbr>'
+    error_notification:
+      default_message: "Please review the problems below:"
+    # Labels and hints examples
+    labels:
+      defaults:
+        password: '비밀번호'
+        title: '제목'
+        subject: '제목'
+        question: '질문'
+      user:
+        new:
+          email: '이메일 로그인'
+        edit:
+          email: '로그인'
+    hints:
+      defaults:
+        username: 'User name to sign in.'
+        password: 'No special characters, please.'
+
